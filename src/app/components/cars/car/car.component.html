@@ -1,0 +1,20 @@
+<div class="mb-3">
+    <label for="filterText" class="form-label">Araba Ara</label>
+    <input type="email" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka Girin">
+</div>
+
+<div class="row">
+<div class="card" style="width: 18rem;" *ngFor="let car of cars | carFilter:filterText">
+    <img src="{{imgUrl}}{{car.imagePath}}" class="card-img-top" height="200px">
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">          ID: {{car.carId}}</li>
+            <li class="list-group-item">       Marka: {{car.brandName}}</li>
+            <li class="list-group-item">        Renk: {{car.colorName}}</li>
+            <li class="list-group-item">  Model Yılı: {{car.carModelYear}}</li>
+            <li class="list-group-item">Günlük Ücret: {{car.carDailyPrice}} TL</li>
+        </ul><br>
+        <a routerLink="/cars/cardetail/{{car.carId}}" class="btn btn-primary">Detay</a>
+    </div>
+</div>
+</div>
