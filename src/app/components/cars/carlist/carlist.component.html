@@ -1,0 +1,27 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marka</th>
+            <th>Renk</th>
+            <th>Model Yılı</th>
+            <th>Günlük Ücret</th>
+            <th>Açıklama</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of cars">
+            <td>{{car.carId}}</td>
+            <td>{{car.brandName}}</td>
+            <td>{{car.colorName}}</td>
+            <td>{{car.carModelYear}}</td>
+            <td>{{car.carDailyPrice}}</td>
+            <td>{{car.carDescription}}</td>
+            <td><button type="button" class="btn btn-outline-danger" (click)="delete(car)">Sil</button></td>
+            <td><button type="button" class="btn btn-outline-success" routerLink="/cars/carupdate/{{car.carId}}">Güncelle</button></td>
+        </tr>
+    </tbody>
+</table>
+

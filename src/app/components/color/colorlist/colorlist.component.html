@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Renk</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let color of colors">
+            <td>{{color.colorId}}</td>
+            <td>{{color.colorName}}</td>
+            <td><button type="button" class="btn btn-outline-danger" (click)="delete(color)">Sil</button></td>
+            <td><button type="button" class="btn btn-outline-success" routerLink="/colors/colorupdate/{{color.colorId}}">Güncelle</button></td>
+        </tr>
+    </tbody>
+</table>

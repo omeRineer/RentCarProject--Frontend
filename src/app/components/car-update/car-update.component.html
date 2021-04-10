@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Araba Güncelle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="updateCarForm">
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input type="number" formControlName="carBrand" [(ngModel)]="car.carBrand" id="carBrand" class="form-control" placeholder="Marka Id"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input type="number" formControlName="carColor" [(ngModel)]="car.carColor" id="carColor" class="form-control" placeholder="Renk Id"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input type="number" formControlName="carModelYear" [(ngModel)]="car.carModelYear" id="carModelYear" class="form-control" placeholder="Model Yılı"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input type="number" formControlName="carDailyPrice" [(ngModel)]="car.carDailyPrice" id="carDailyPrice" class="form-control" placeholder="Günlük Ücret"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input type="text" formControlName="carDescription" [(ngModel)]="car.carDescription" id="carDescription" class="form-control" placeholder="Açıklama"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="update()" >Güncelle</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,42 +1,57 @@
 <div class="row">
-    <div class="col-md-6">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="height: 521px;">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{{imgUrl}}{{cars[0].imagePath}}" class="d-block w-100" alt="Image">
-      </div>
-      <!-- <div class="carousel-item">
+  <div class="col-md-6">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="height: 521px;">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{imgUrl}}{{cars[0].imagePath}}" class="d-block w-100" alt="Image">
+        </div>
+        <!-- <div class="carousel-item">
         <img src="{{imgUrl}}{{carImages[1].imagePath}}" class="d-block w-100" alt="...">
       </div> -->
-      <!-- <div class="carousel-item">
+        <!-- <div class="carousel-item">
         <img src="{{imgUrl}}{{carImages[0].imagePath}}" class="d-block w-100" alt="...">
       </div> -->
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
+  <div class="col-md-4">
+    <div class="card" style="height: 521px;">
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> ID: {{cars[0].carId}}</li>
+          <li class="list-group-item"> Marka: {{cars[0].brandName}}</li>
+          <li class="list-group-item"> Renk: {{cars[0].colorName}}</li>
+          <li class="list-group-item"> Model Yılı: {{cars[0].carModelYear}}</li>
+          <li class="list-group-item">Günlük Ücret: {{cars[0].carDailyPrice}} TL</li>
+          <li class="list-group-item"> Açıklama: {{cars[0].carDescription}}</li>
+        </ul>
+
+      </div>
+      <div class="card-footer">
+        <div class="mb-3">
+          <input type="text" [(ngModel)]="cardNumber" class="form-control" placeholder="Kart Numarası">
+        </div>
+        <div class="mb-3">
+          <input type="text" [(ngModel)]="cVV" class="form-control" placeholder="Son Geçerlilik Tarihi">
+        </div>
+        <div class="mb-3">
+          <button type="button" class="btn btn-success" style="height: 55px; width: 120px;"
+            (click)="rentCar()">Kirala</button>
+        </div>
+
+
+
+      </div>
     </div>
-    <div class="col-md-4">
-        <div class="card" style="height: 521px;">
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                  <li class="list-group-item">          ID: {{cars[0].carId}}</li>
-                  <li class="list-group-item">       Marka: {{cars[0].brandName}}</li>
-                  <li class="list-group-item">        Renk: {{cars[0].colorName}}</li>
-                  <li class="list-group-item">  Model Yılı: {{cars[0].carModelYear}}</li>
-                  <li class="list-group-item">Günlük Ücret: {{cars[0].carDailyPrice}} TL</li>
-                  <li class="list-group-item">    Açıklama: {{cars[0].carDescription}}</li>
-              </ul><br>
-              <input type="text" [(ngModel)]="cardNumber" class="form-control" placeholder="Kart Numarası">
-              <input type="text" [(ngModel)]="cVV" class="form-control" placeholder="Son Geçerlilik Tarihi">
-              <button type="button" class="btn btn-success" style="height: 55px; width: 120px;" (click)="rentCar()">Kirala</button>
-            </div>
-          </div>
-    </div>
+  </div>
 </div>

@@ -29,6 +29,8 @@ export class CarDetailComponent implements OnInit {
 
   car:number
   customer:number
+  rentDate:Date
+  returnDate:Date
 
   //kiralama ve teslim tarihi backendde otomatik olarak ayarlandı burası refactor edilecek
   constructor(private toastrService:ToastrService, private rentService:RentService, private activatedRoute:ActivatedRoute,private carService:CarService,private carImageService:CarImageService,private cardService:CardService) { }
@@ -67,8 +69,9 @@ export class CarDetailComponent implements OnInit {
       returnDate:null,
       rentId:null
     }
-    this.rentService.add(rent)
-    this.toastrService.success("Kiralandı","Araba kiralandı")
+    this.rentService.add(rent).subscribe(response=>{
+      this.toastrService.success("Araba Kiralama işlemi başarılı")
+    })
 
     // this.cardExist= await this.isCardExist(card)
     // if(this.cardExist){

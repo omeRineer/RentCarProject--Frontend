@@ -28,4 +28,14 @@ export class RentService {
     let newPath=this.apiUrl+"/add"
     return this.httpClient.post<ResponseModel>(newPath,rent);
   }
+
+  delete(rent:Rent):Observable<ResponseModel>{
+    let newPath=this.apiUrl+"/delete"
+    return this.httpClient.post<ResponseModel>(newPath,rent);
+  }
+
+  update(rent:Rent):Observable<ResponseModel>{
+    let newPath=this.apiUrl+"/update"
+    return this.httpClient.post<ResponseModel>(newPath,rent);
+  }
 }
