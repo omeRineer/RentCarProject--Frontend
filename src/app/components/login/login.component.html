@@ -1,0 +1,21 @@
+<main class="form-signin">
+    <form [formGroup]="loginForm">
+      <div class="form-floating">
+        <label for="floatingInput">Email address</label>
+        <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      </div>
+      <div class="form-floating">
+        <label for="floatingPassword" >Password</label>
+        <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+        
+      </div>
+  
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" (click)="login()">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    </form>
+  </main>

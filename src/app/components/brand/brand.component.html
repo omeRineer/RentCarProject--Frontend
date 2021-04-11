@@ -2,8 +2,8 @@
   <input type="email" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka Girin">
 </div>
 <ul class="list-group">
-  <li (click)="setCurrentBrand(null)" [class]="getCurrentBrand(null)" routerLink="/cars">Tüm Markalar</li>
-    <li routerLink="/cars/brand/{{brand.brandId}}"
+  <li (click)="setCurrentBrand(null)" [class]="getCurrentBrand(null)" routerLink="cars">Tüm Markalar</li>
+    <li routerLink="cars/brand/{{brand.brandId}}"
     (click)="setCurrentBrand(brand)" 
     [class]="getCurrentBrand(brand)" 
     *ngFor="let brand of brands | brand:filterText">{{brand.brandName}}</li>

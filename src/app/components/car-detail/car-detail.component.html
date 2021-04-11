@@ -3,7 +3,7 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="height: 521px;">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{{imgUrl}}{{cars[0].imagePath}}" class="d-block w-100" alt="Image">
+          <img src="{{imgUrl}}{{carImages[0].imagePath}}" class="d-block w-100" alt="Image">
         </div>
         <!-- <div class="carousel-item">
         <img src="{{imgUrl}}{{carImages[1].imagePath}}" class="d-block w-100" alt="...">
@@ -25,28 +25,49 @@
     </div>
   </div>
   <div class="col-md-4">
-    <div class="card" style="height: 521px;">
+    <div class="card" >
       <div class="card-body">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"> ID: {{cars[0].carId}}</li>
-          <li class="list-group-item"> Marka: {{cars[0].brandName}}</li>
-          <li class="list-group-item"> Renk: {{cars[0].colorName}}</li>
-          <li class="list-group-item"> Model Yılı: {{cars[0].carModelYear}}</li>
-          <li class="list-group-item">Günlük Ücret: {{cars[0].carDailyPrice}} TL</li>
-          <li class="list-group-item"> Açıklama: {{cars[0].carDescription}}</li>
+          <li class="list-group-item"> ID: {{car.carId}}</li>
+          <li class="list-group-item"> Marka: {{car.brandName}}</li>
+          <li class="list-group-item"> Renk: {{car.colorName}}</li>
+          <li class="list-group-item"> Model Yılı: {{car.carModelYear}}</li>
+          <li class="list-group-item">Günlük Ücret: {{car.carDailyPrice}} TL</li>
+          <li class="list-group-item"> Açıklama: {{car.carDescription}}</li>
         </ul>
 
       </div>
       <div class="card-footer">
-        <div class="mb-3">
-          <input type="text" [(ngModel)]="cardNumber" class="form-control" placeholder="Kart Numarası">
+
+          <div class="mb-3">
+            <div class="form-group">
+              <label>Teslim Alma Tarihi</label>
+            <input type="date" class="form-control" [(ngModel)]="rentDate"  id="rentDate" />
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label>Teslim Etme Tarihi</label>
+            <input type="date" class="form-control" [(ngModel)]="returnDate"  id="returnDate" />
+            </div>
+          </div>
+          <div class="mb-3">
+              <div class="form-group">
+                <label>Kart Numarası</label>
+                  <input type="text"  id="cardNumber" [(ngModel)]="cardNumber" class="form-control" placeholder="Kart Numarası"/>
+              </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label>CVV</label>
+                <input type="number"  id="cVV" [(ngModel)]="cVV" class="form-control" placeholder="CVV"/>
+            </div>
         </div>
+
+        
         <div class="mb-3">
-          <input type="text" [(ngModel)]="cVV" class="form-control" placeholder="Son Geçerlilik Tarihi">
-        </div>
-        <div class="mb-3">
-          <button type="button" class="btn btn-success" style="height: 55px; width: 120px;"
-            (click)="rentCar()">Kirala</button>
+          <button type="button" class="btn btn-success" style="height: 55px; width: 120px;" (click)="rentCar()"
+            >Kirala</button>
         </div>
 
 

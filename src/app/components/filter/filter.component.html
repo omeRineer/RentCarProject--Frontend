@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6">
         <div class="md-3">
-            <select class="form-select" [(ngModel)]="currentBrand" id="brandselect">
+            <select class="form-control" [(ngModel)]="currentBrand" id="brandselect">
                 <option [ngValue]="undefined" disabled selected>Marka Seçiniz</option>
                 <option [value]="brand.brandId" *ngFor="let brand of brands" selected="setCurrentBrand(brand.brandId)">{{brand.brandName}}</option>
             </select>
@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-6">
         <div class="md-3">
-            <select class="form-select" id="colorselect" [(ngModel)]="currentColor">
+            <select class="form-control" id="colorselect" [(ngModel)]="currentColor">
                 <option [ngValue]="undefined" disabled selected>Renk Seçiniz</option>
                 <option [value]="color.colorId" *ngFor="let color of colors" selected="setCurrentColor(color.colorId)">{{color.colorName}}</option>
             </select>
@@ -21,7 +21,7 @@
     <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
         <button 
         class="btn btn-danger"
-        routerLink="/cars/filter/{{currentBrand}}/{{currentColor}}" >
+        routerLink="cars/filter/{{currentBrand}}/{{currentColor}}" >
             Filter
         </button>
     </div>

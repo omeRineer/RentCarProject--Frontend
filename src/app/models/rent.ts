@@ -4,4 +4,7 @@ export class Rent{
     customer:number
     rentDate:Date
     returnDate:Date
+
+    cardNumber:string
+    cVV:number
 }

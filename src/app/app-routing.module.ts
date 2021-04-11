@@ -12,13 +12,19 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { ColorlistComponent } from './components/color/colorlist/colorlist.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { LoginComponent } from './components/login/login.component';
 import { RentComponent } from './components/rent/rent.component';
 
 const routes: Routes = [
   {path:"rents",component:RentComponent},
+  {path:"login",component:LoginComponent},
 
-  {path:"cars/brand/:brandId",component:CarComponent},
+  
+  {path:"homepagecars",component:HomePageComponent,children:[
+  
   {path:"cars",component:CarComponent},
+  {path:"cars/brand/:brandId",component:CarComponent},
+    
   {path:"cars/filter/:brandId/:colorId",component:CarComponent},
   {path:"cars/color/:colorId",component:CarComponent},
 
@@ -33,8 +39,13 @@ const routes: Routes = [
   {path:"brands/brandlist",component:BrandlistComponent},
 
   {path:"cars/carupdate/:carId",component:CarUpdateComponent},
-  {path:"brands/brandupdate/:brandId",component:BrandUpdateComponent},
-  {path:"colors/colorupdate/:colorId",component:ColorUpdateComponent}
+  {path:"brandlist/brandupdate/:brandId",component:BrandUpdateComponent},
+  {path:"colors/colorupdate/:colorId",component:ColorUpdateComponent},
+
+  {path:"cars/:rentcar",component:CarUpdateComponent}
+  ]}
+  
+
 
 ];
 

@@ -19,14 +19,14 @@ export class RentService {
     return this.httpClient.get<ListResponseModel<Rent>>(newPath)
   }
 
-  getAllDto():Observable<ListResponseModel<RentDto>>{
-    let newPath=this.apiUrl+"/getallbydto"
-    return this.httpClient.get<ListResponseModel<RentDto>>(newPath)
-  }
-
   add(rent:Rent):Observable<ResponseModel>{
     let newPath=this.apiUrl+"/add"
     return this.httpClient.post<ResponseModel>(newPath,rent);
+  }
+
+  getAllDto():Observable<ListResponseModel<RentDto>>{
+    let newPath=this.apiUrl+"/getallbydto"
+    return this.httpClient.get<ListResponseModel<RentDto>>(newPath)
   }
 
   delete(rent:Rent):Observable<ResponseModel>{

@@ -17,23 +17,25 @@ import { RentService } from 'src/app/services/rent.service';
 })
 export class CarDetailComponent implements OnInit {
 
-  cars:Car[]=[]
+  car:Car
   carImages:CarImage[]
   card:Card
+
+  rent:Rent 
   imgUrl="https://localhost:44337/"
 
-  cardExist:boolean
-
+  rentDate:Date
+  returnDate:Date
   cardNumber:string
   cVV:number
 
-  car:number
-  customer:number
-  rentDate:Date
-  returnDate:Date
 
-  //kiralama ve teslim tarihi backendde otomatik olarak ayarlandı burası refactor edilecek
-  constructor(private toastrService:ToastrService, private rentService:RentService, private activatedRoute:ActivatedRoute,private carService:CarService,private carImageService:CarImageService,private cardService:CardService) { }
+  constructor(private toastrService:ToastrService, 
+    private rentService:RentService, 
+    private activatedRoute:ActivatedRoute,
+    private carService:CarService,
+    private carImageService:CarImageService,
+    private cardService:CardService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -43,10 +45,12 @@ export class CarDetailComponent implements OnInit {
       }
     })
   }
+
+
   
   getCarById(carId:number){
     this.carService.getByCarId(carId).subscribe(response=>{
-      this.cars=response.data
+      this.car=response.data
     })
   }
 
@@ -56,31 +60,21 @@ export class CarDetailComponent implements OnInit {
     })
   }
 
-  async rentCar(){
-     let card:Card={
-      cardNumber:this.cardNumber,
-      cVV:this.cVV,
-      cardId:null
-    }
+  rentCar(){
     let rent:Rent={
-      car:this.cars[0].carId,
+      rentId:10,
+      car:this.car.carId,
       customer:1,
-      rentDate:null,
-      returnDate:null,
-      rentId:null
+      rentDate:this.rentDate,
+      returnDate:this.returnDate,
+      cardNumber:this.cardNumber,
+      cVV:this.cVV
     }
-    this.rentService.add(rent).subscribe(response=>{
-      this.toastrService.success("Araba Kiralama işlemi başarılı")
+    console.log(rent)
+    this.rentService.add(rent).subscribe(Response=>{
+      this.toastrService.success("Kiralama işlemi başarılı")
+    },responseError=>{
+      this.toastrService.error("Hata")
     })
-
-    // this.cardExist= await this.isCardExist(card)
-    // if(this.cardExist){
-      
-      
-    // }
-  }
-
-  async isCardExist(card:Card){
-    return (await this.cardService.isCardExist(card).toPromise()).success
   }
 }

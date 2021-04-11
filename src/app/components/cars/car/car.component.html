@@ -1,3 +1,4 @@
+
 <div class="mb-3">
     <label for="filterText" class="form-label">Araba Ara</label>
     <input type="email" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka Girin">
@@ -14,7 +15,7 @@
             <li class="list-group-item">  Model Yılı: {{car.carModelYear}}</li>
             <li class="list-group-item">Günlük Ücret: {{car.carDailyPrice}} TL</li>
         </ul><br>
-        <a routerLink="/cars/cardetail/{{car.carId}}" class="btn btn-primary">Detay</a>
+        <a routerLink="cars/cardetail/{{car.carId}}" class="btn btn-primary">Detay</a>
     </div>
 </div>
 </div>
